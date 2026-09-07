@@ -11,22 +11,27 @@ A metadata/configuration-driven Python framework for validating multiple dataset
 
 ## Architecture
 
-    YAML Configuration
-           |
-           v
-      Config Loader
-           |
-           v
-        DQ Engine
-       /        \
- Connector     Rule Factory
-     |          / | | \
- CSV/DB      Null Unique Range Accepted...
-       \        /
-        Results
-           |
-           v
-      Console/JSON Report
+```text
+YAML Configuration
+        |
+        v
+  Config Loader
+        |
+        v
+    DQ Engine
+     /     \
+    v       v
+Connector   Rule Factory
+    |           |
+    v           v
+ CSV / DB     DQ Rules
+                |
+                v
+             Results
+                |
+                v
+      Console / JSON Report
+```
 
 The core engine orchestrates execution. It does not contain dataset-specific validation logic.
 
