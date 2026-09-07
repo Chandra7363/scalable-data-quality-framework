@@ -1,0 +1,6 @@
+order_id,customer_id,amount,status
+1001,1,250.50,PAID
+1002,2,99.00,PAID
+1003,99,150.00,NEW
+1004,3,-10.00,CANCELLED
+1005,5,450.00,PAID

@@ -1,0 +1,6 @@
+customer_id,name,age,status,updated_at,email
+1,Asha,29,ACTIVE,2026-09-07,asha@gmail.com
+2,Ravi,34,ACTIVE,2026-09-07,ravi@gmail.com
+3,Meera,17,ACTIVE,2026-09-06,meera@gmail.com
+3,Kiran,42,UNKNOWN,2026-09-07,invalid-email
+5,,31,INACTIVE,2026-09-07,test@gmail.com

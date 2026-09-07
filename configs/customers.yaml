@@ -1,0 +1,35 @@
+dataset: customers
+source:
+  type: csv
+  path: sample_data/customers.csv
+reporting:
+  output: customer_dq_results.json
+rules:
+- type: not_null
+  name: customer_id_not_null
+  column: customer_id
+- type: unique
+  name: customer_id_unique
+  column: customer_id
+- type: not_null
+  name: customer_name_not_null
+  column: name
+- type: range
+  name: valid_customer_age
+  column: age
+  min: 18
+  max: 100
+- type: accepted_values
+  name: valid_customer_status
+  column: status
+  values:
+  - ACTIVE
+  - INACTIVE
+- type: regex
+  name: valid_customer_email
+  column: email
+  pattern: ^[^@\s]+@[^@\s]+\.[^@\s]+$
+- type: freshness
+  name: customer_data_freshness
+  column: updated_at
+  max_age_days: 2

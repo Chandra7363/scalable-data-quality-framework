@@ -1,0 +1,28 @@
+dataset: orders
+source:
+  type: csv
+  path: sample_data/orders.csv
+reporting:
+  output: orders_dq_results.json
+rules:
+- type: unique
+  name: order_id_unique
+  column: order_id
+- type: range
+  name: positive_order_amount
+  column: amount
+  min: 0
+- type: accepted_values
+  name: valid_order_status
+  column: status
+  values:
+  - NEW
+  - PAID
+  - CANCELLED
+- type: referential_integrity
+  name: customer_exists
+  column: customer_id
+  reference:
+    type: csv
+    path: sample_data/customers.csv
+    column: customer_id
